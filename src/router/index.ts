@@ -1,12 +1,11 @@
 import type { RouteRecordRaw } from 'vue-router'
-import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-
-// import { setupLayouts } from 'virtual:meta-layouts'
 // import generatedRoutes from 'virtual:generated-pages'
+// import { setupLayouts } from 'virtual:meta-layouts'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import useSettingsStore from '@/store/modules/settings'
 import useUserStore from '@/store/modules/user'
+import 'nprogress/nprogress.css'
 
 let routes: RouteRecordRaw[] = []
 
@@ -32,7 +31,7 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const userStore = useUserStore()
   NProgress.start()
   if (to.meta.requireLogin) {

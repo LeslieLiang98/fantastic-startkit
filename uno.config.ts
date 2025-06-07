@@ -4,7 +4,7 @@ import {
   presetAttributify,
   presetIcons,
   presetTypography,
-  presetUno,
+  presetWind3,
   transformerCompileClass,
   transformerDirectives,
   transformerVariantGroup,
@@ -29,11 +29,9 @@ export default defineConfig<Theme>({
       }
       return cls.join(' ')
     }],
-    [/^square-\[?(.*?)\]?$/, ([, size]) => `w-${size} h-${size}`],
-    [/^circle-\[?(.*?)\]?$/, ([, size]) => `square-${size} rounded-full`],
   ],
   presets: [
-    presetUno(),
+    presetWind3(),
     presetAttributify(),
     presetIcons({
       extraProperties: {
